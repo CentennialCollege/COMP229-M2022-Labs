@@ -1,0 +1,11 @@
+{
+  "name": "comp229-m2022-week2",
+  "version": "0.0.1",
+  "description": "Demo project for COMP229 in the M2022 semester at Centennial College",
+  "main": "server.js",
+  "author": "Tom Tsiliopoulos",
+  "license": "MIT",
+  "dependencies": {
+    "mime-types": "^2.1.35"
+  }
+}
