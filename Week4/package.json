@@ -1,6 +1,6 @@
 {
   "name": "comp229-m2022-week4",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Demo Project for COMP229 in the Summer 2022 semester for Week 4",
   "main": "server.js",
   "author": "Tom Tsiliopoulos",
@@ -15,6 +15,9 @@
     "yarn": "1.22.18"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "5.2.0-beta1",
     "cookie-parser": "^1.4.6",
     "debug": "^4.3.4",
     "ejs": "^3.1.8",
