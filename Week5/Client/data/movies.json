@@ -1,0 +1,23 @@
+{
+    "movies":
+    [
+        {
+            "Name": "Star Wars",
+            "Year": "1977",
+            "Director": "George Lucas",
+            "Rating": "4 Stars"
+        },
+        {
+            "Name": "Spider-Man: No Way Home",
+            "Year": "2021",
+            "Director": "Jon Watts",
+            "Rating": "4.5 Stars"
+        },
+        {
+            "Name": "Everything Everywhere All at Once",
+            "Year": "2022",
+            "Director": "Dan Kwan",
+            "Rating": "5.0 Stars"
+        }
+    ]    
+}
