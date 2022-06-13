@@ -1,7 +1,7 @@
 {
-  "name": "comp229-m2022-week5",
-  "version": "0.0.4",
-  "description": "Demo Project for COMP229 in the Summer 2022 semester for Week 5",
+  "name": "comp229-m2022-week6",
+  "version": "0.0.5",
+  "description": "Demo Project for COMP229 in the Summer 2022 semester for Week 6",
   "main": "server.js",
   "author": "Tom Tsiliopoulos",
   "license": "MIT",
