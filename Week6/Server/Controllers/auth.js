@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.ProcessLoginPage = exports.DisplayRegisterPage = exports.DisplayLoginPage = void 0;
 const passport_1 = __importDefault(require("passport"));
+const user_1 = __importDefault(require("../Models/user"));
 function DisplayLoginPage(req, res, next) {
     res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: '' });
 }
@@ -34,9 +35,32 @@ function ProcessLoginPage(req, res, next) {
 }
 exports.ProcessLoginPage = ProcessLoginPage;
 function ProcessRegisterPage(req, res, next) {
+    let newUser = new user_1.default({
+        username: req.body.username,
+        EmailAddress: req.body.emailAddress,
+        DisplayName: req.body.firstName + " " + req.body.lastName
+    });
+    user_1.default.register(newUser, req.body.password, function (err) {
+        if (err) {
+            if (err.name == "UserExistsError") {
+                console.error('ERROR: User Already Exists!');
+                req.flash('registerMessage', 'Registration Error!');
+            }
+            else {
+                console.error(err.name);
+                req.flash('registerMessage', 'Server Error');
+            }
+            return res.redirect('/register');
+        }
+        return passport_1.default.authenticate('local')(req, res, function () {
+            return res.redirect('/movie-list');
+        });
+    });
 }
 exports.ProcessRegisterPage = ProcessRegisterPage;
 function ProcessLogoutPage(req, res, next) {
+    req.logOut();
+    res.redirect('/login');
 }
 exports.ProcessLogoutPage = ProcessLogoutPage;
 //# sourceMappingURL=auth.js.map
