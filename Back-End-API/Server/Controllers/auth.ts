@@ -95,7 +95,7 @@ export function ProcessLogoutPage(req: express.Request, res: express.Response, n
         console.log("User Logged Out");
     });
 
-    res.redirect('/login');
+    res.json({success: true, msg: 'User Logged Out Successfully!'});
 }
 
 

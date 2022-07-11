@@ -105,8 +105,8 @@ let strategy = new JWTStrategy(jwtOptions, function(jwt_payload, done)
 passport.use(strategy);
 
 // use routes
-app.use('/api', movieListRouter);
 app.use('/api', authRouter);
+app.use('/api', passport.authenticate('jwt', {session: false}), movieListRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) 
