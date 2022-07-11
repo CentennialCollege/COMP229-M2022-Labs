@@ -15,6 +15,11 @@ import flash from 'connect-flash';
 
 // modules for JWT support
 import cors from 'cors';
+import passportJWT from 'passport-jwt';
+
+// define JWT Aliases
+let JWTStrategy = passportJWT.Strategy;
+let ExtractJWT = passportJWT.ExtractJwt;
 
 // Step 2 for auth - define our auth objects
 let localStrategy = passportLocal.Strategy; // alias
@@ -77,6 +82,27 @@ passport.use(User.createStrategy());
 // Step 8 - setup User serialization and deserialization (encoding and decoding)
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// setup JWT options
+let jwtOptions =
+{
+  jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+  secretOrKey: DBConfig.Secret
+}
+
+// setup JWT Strategy
+let strategy = new JWTStrategy(jwtOptions, function(jwt_payload, done)
+{
+  User.findById(jwt_payload.id)
+    .then(user => {
+      return done(null, user);
+    })
+    .catch(err => {
+      return done(err, false);
+    });
+});
+
+passport.use(strategy);
 
 // use routes
 app.use('/api', movieListRouter);

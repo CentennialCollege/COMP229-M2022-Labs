@@ -37,6 +37,9 @@ const passport_1 = __importDefault(require("passport"));
 const passport_local_1 = __importDefault(require("passport-local"));
 const connect_flash_1 = __importDefault(require("connect-flash"));
 const cors_1 = __importDefault(require("cors"));
+const passport_jwt_1 = __importDefault(require("passport-jwt"));
+let JWTStrategy = passport_jwt_1.default.Strategy;
+let ExtractJWT = passport_jwt_1.default.ExtractJwt;
 let localStrategy = passport_local_1.default.Strategy;
 const user_1 = __importDefault(require("../Models/user"));
 const movie_list_1 = __importDefault(require("../Routes/movie-list"));
@@ -71,6 +74,20 @@ app.use(passport_1.default.session());
 passport_1.default.use(user_1.default.createStrategy());
 passport_1.default.serializeUser(user_1.default.serializeUser());
 passport_1.default.deserializeUser(user_1.default.deserializeUser());
+let jwtOptions = {
+    jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+    secretOrKey: DBConfig.Secret
+};
+let strategy = new JWTStrategy(jwtOptions, function (jwt_payload, done) {
+    user_1.default.findById(jwt_payload.id)
+        .then(user => {
+        return done(null, user);
+    })
+        .catch(err => {
+        return done(err, false);
+    });
+});
+passport_1.default.use(strategy);
 app.use('/api', movie_list_1.default);
 app.use('/api', auth_1.default);
 app.use(function (req, res, next) {
