@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.ProcessLoginPage = void 0;
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
+const Util_1 = require("../Util");
 function ProcessLoginPage(req, res, next) {
     passport_1.default.authenticate('local', function (err, user, info) {
         if (err) {
@@ -13,16 +14,22 @@ function ProcessLoginPage(req, res, next) {
             res.end(err);
         }
         if (!user) {
-            req.flash('loginMessage', 'Authentication Error!');
-            return res.redirect('/login');
+            return res.json({ success: false, msg: 'ERROR: Authentication Failed' });
         }
         req.logIn(user, function (err) {
             if (err) {
                 console.error(err);
                 res.end(err);
             }
-            return res.redirect('/movie-list');
+            const authToken = (0, Util_1.GenerateToken)(user);
+            return res.json({ success: true, msg: 'User Logged In Successfully!', user: {
+                    id: user._id,
+                    DisplayName: user.DisplayName,
+                    username: user.username,
+                    EmailAddress: user.EmailAddress
+                }, token: authToken });
         });
+        return;
     })(req, res, next);
 }
 exports.ProcessLoginPage = ProcessLoginPage;
