@@ -11,7 +11,7 @@ function Projects()
         <div className="container">
             <h1>Our Projects</h1>
             <hr />
-            <p>Here is detail for our projects...</p>
+            <p>Here are details for our projects...</p>
         </div>
     );
 }
