@@ -1,0 +1,27 @@
+{
+    "Surveys":
+    [
+        {
+            "SurveyID": "1",
+            "OwnerID": "1",
+            "SurveyName": "MySurvey",
+            "StartDate": "2022-07-18 09:20",
+            "EndDate": "2022-07-19 11:59",
+            "Active": true,
+            "QuestionCount": 2
+        },
+        {
+            "SurveyID": "2",
+            "OwnerID": "1",
+            "SurveyName": "My Second Survey",
+            "StartDate": "2022-07-19 09:20",
+            "EndDate": "2022-07-20 11:59",
+            "Active": true,
+            "QuestionCount": 5
+        }
+    ]
+}
+
+
+
+

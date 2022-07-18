@@ -1,0 +1,79 @@
+{
+    "Surveys":
+    [
+        {
+            "SurveyID": "1",
+            "OwnerID": "1",
+            "SurveyName": "MySurvey",
+            "StartDate": "2022-07-18 09:20",
+            "EndDate": "2022-07-19 11:59",
+            "Active": true,
+            "Questions":
+            [
+                {
+                    "QuestionID": "1",
+                    "QuestionType":"Multiple",
+                    "QuestionText": "What is your Favourite Browser?",
+                    "Options":
+                    [
+                        {
+                            "OptionID": "1",
+                            "OptionText": "Chrome",
+                            "OptionValue": 1,
+                            "QuestionID": "1"
+                        },
+                        {
+                            "OptionID": "2",
+                            "OptionText": "Edge",
+                            "OptionValue": 2,
+                            "QuestionID": "1"
+                        },
+                        {
+                            "OptionID": "3",
+                            "OptionText": "Firefox",
+                            "OptionValue": 3,
+                            "QuestionID": "1"
+                        }
+                    ],
+                    "SurveyID": "1"
+                },
+                {
+                    "QuestionID": "2",
+                    "QuestionType":"TrueFalse",
+                    "QuestionText": "Do you Like Pasta?",
+                    "Options":
+                    [
+                        {
+                            "OptionID": "1",
+                            "OptionText": "True",
+                            "OptionValue": 1,
+                            "QuestionID": "2"
+                        },
+                        {
+                            "OptionID": "2",
+                            "OptionText": "False",
+                            "OptionValue": 2,
+                            "QuestionID": "2"
+                        }
+                    ],
+                    "SurveyID": "1"
+                }
+            ],
+            "Responses":
+            [
+                {
+                    "SurveyID":"1",
+                    "Questions":
+                    [
+                        {"QuestionID": "1", "OptionID": "1", "Value":"1"},
+                        {"QuestionID": "2", "OptionID": "2", "Value":"2"}
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+
+
+

@@ -1,0 +1,25 @@
+{
+    "Questions":
+            [
+                {
+                    "QuestionID": "1",
+                    "QuestionType":"Multiple",
+                    "QuestionText": "What is your Favourite Browser?",
+                    "SurveyID": "1",
+                    "OptionCount": 3,
+                    "Favourite": true
+                },
+                {
+                    "QuestionID": "1",
+                    "QuestionType":"TrueFalse",
+                    "QuestionText": "Do you Like Pasta?",
+                    "SurveyID": "2",
+                    "OptionCount": 2,
+                    "Favourite": false
+                }
+            ]
+}
+
+
+
+
