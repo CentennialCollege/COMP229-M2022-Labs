@@ -8,11 +8,15 @@ import Footer from './components/footer';
 // Content Components
 import Home from './content/home';
 import About from './content/about';
+import Projects from './content/projects';
+import Services from './content/services';
+import Contact from './content/contact';
 
 // Styles and Fonts
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import './App.css';
+
 
 function App() {
   return (
@@ -25,6 +29,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />}></Route>
+          <Route path="/projects" element={<Projects />}></Route>
+          <Route path="/services" element={<Services />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
       </Routes>
 
       <Footer></Footer>
