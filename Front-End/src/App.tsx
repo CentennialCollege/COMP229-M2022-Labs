@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Common Components
 import Header from './components/header';
+import Footer from './components/footer';
 
 // Content Components
 import Home from './content/home';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/home" element={<Home />} />
       </Routes>
 
+      <Footer></Footer>
       </BrowserRouter>
     </div>
   );
