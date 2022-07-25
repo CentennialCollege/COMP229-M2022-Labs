@@ -8,6 +8,7 @@ function Logout()
     {
         document.title = "Logout";
         AuthService.logout();
+        window.location.reload();
     })
 
     return(

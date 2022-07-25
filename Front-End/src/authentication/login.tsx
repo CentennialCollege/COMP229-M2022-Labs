@@ -42,6 +42,7 @@ function Login()
             // navigate to the movie-list page
             //TODO: Change this link to "movie-list";
             navigate("/home"); // temporarily link to home page 
+            window.location.reload();
         }, error =>{
             // TODO: Needs a replacement for Flash messaging
             window.location.reload();
