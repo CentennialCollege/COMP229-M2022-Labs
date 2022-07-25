@@ -13,10 +13,14 @@ import Services from './content/services';
 import Contact from './content/contact';
 import PageNotFound from './content/PageNotFound';
 
+// Authentication Components
+import Login from './authentication/login';
+
 // Styles and Fonts
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import './App.css';
+
 
 function App() {
   return (
@@ -32,6 +36,7 @@ function App() {
           <Route path="/projects" element={<Projects />}></Route>
           <Route path="/services" element={<Services />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
 
